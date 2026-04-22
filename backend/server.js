@@ -6,7 +6,7 @@ const connectDB = require("./config/db");
 const blogsRouter = require("./routes/blogs");
 
 dotenv.config();
-//connectDB();
+connectDB();
 
 const app = express();
 app.use(cors());
