@@ -18,7 +18,8 @@ router.get("/", async (req, res) => {
     } else if (req.header("x-user-role") !== "admin") {
       filter.published = true;
     }
-    const blogs = await Blog.find(filter).sort({ createdAt: -1 });
+   // const blogs = await Blog.find(filter).sort({ createdAt: -1 });
+    const blogs = await Blog.find(filter);
     res.json(blogs);
   } catch (error) {
     res.status(500).json({ message: error.message});
