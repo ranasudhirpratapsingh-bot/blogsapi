@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", requireAdmin, async (req, res) => {
+router.post("/",  async (req, res) => {
   try {
     const { title, content, author, published = false } = req.body;
     const blog = new Blog({ title, content, author, published });
@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", requireAdmin, async (req, res) => {
+router.put("/:id",  async (req, res) => {
   try {
     const { title, content, author, published } = req.body;
     const updateData = { title, content, author };
@@ -66,7 +66,7 @@ router.put("/:id", requireAdmin, async (req, res) => {
   }
 });
 
-router.patch("/:id/publish", requireAdmin, async (req, res) => {
+router.patch("/:id/publish",  async (req, res) => {
   try {
     const { published } = req.body;
     if (typeof published !== "boolean") {
@@ -84,7 +84,7 @@ router.patch("/:id/publish", requireAdmin, async (req, res) => {
   }
 });
 
-router.delete("/:id", requireAdmin, async (req, res) => {
+router.delete("/:id",  async (req, res) => {
   try {
     const blog = await Blog.findByIdAndDelete(req.params.id);
     if (!blog) return res.status(404).json({ message: "Blog not found" });
