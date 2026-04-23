@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "rimraf build && mkdir -p build && cp server.js build && cp -r config build/ && cp -r models build/ && cp -r routes build/"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
