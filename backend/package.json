@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo \"No build necessary for backend\""
+    "build": "if exist build rmdir /s /q build && mkdir build && copy server.js build && xcopy config build\\config /Y /I /E && xcopy models build\\models /Y /I /E && xcopy routes build\\routes /Y /I /E"
   },
   "dependencies": {
     "cors": "^2.8.5",
