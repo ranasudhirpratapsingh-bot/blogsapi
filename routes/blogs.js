@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
     const blogs = await Blog.find(filter).sort({ createdAt: -1 });
     res.json(blogs);
   } catch (error) {
-    res.status(500).json({ message: "Could not load blogs" });
+    res.status(500).json({ message: error.message});
   }
 });
 
